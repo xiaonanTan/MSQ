@@ -1,7 +1,16 @@
 package com.txn.config;
 
-/**
- * Created by txn on 17/2/26.
- */
-public class JerseyConfig {
+import javax.ws.rs.ApplicationPath;
+
+import com.txn.rest.SenderResource;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.stereotype.Component;
+
+@Component
+@ApplicationPath("api")
+public class JerseyConfig extends ResourceConfig {
+
+    public JerseyConfig() {
+        register(SenderResource.class);
+    }
 }
